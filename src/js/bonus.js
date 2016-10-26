@@ -3,10 +3,40 @@ import {it, expect} from "./test_lib";
 // Constructors
 // Only add code to *THIS* section!
 
-///
-///
-///
-///
+var Human = function(name){
+  this.name = name;
+  this.alertness =0;
+  if(this.hasCoffee==undefined){
+    this.hasCoffee=false;
+    this.needsCoffee=true;
+  } 
+}
+Human.prototype.buy= function(coffee){
+    this.coffee = coffee;
+    coffee.full=false;
+    coffee.empty=false;
+    if(this.hasCoffee==false){
+      this.hasCoffee=true;
+    } 
+    
+     
+  }
+Human.prototype.drink=function(){
+  if(this.coffee.empty != true) {
+    this.coffee.sips--;
+    this.alertness+=0.35;
+
+    if(this.coffee.sips == 0) {
+      this.coffee.empty = true;
+    }
+  }
+
+  }
+
+var Coffee = function(coffeeName){
+  this.full = true;
+  this.sips = 3;
+}
 
 // Do not ADD or MODIFY code below this line :D
 
